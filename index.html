@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Management</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        .present {
+            background-color: #c8e6c9; /* light green */
+        }
+        .absent {
+            background-color: #ffcccb; /* light red */
+        }
+        #thankYou {
+            text-align: center;
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 align="center">Attendance Management System</h1>
+<hr>
+
+<div id="formSection">
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Present</th>
+            <th>Absent</th>
+        </tr>
+
+        <tr>
+            <td>John Doe</td>
+            <td><input type="radio" name="johnDoe" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="johnDoe" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Jane Smith</td>
+            <td><input type="radio" name="janeSmith" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="janeSmith" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Michael Johnson</td>
+            <td><input type="radio" name="michaelJohnson" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="michaelJohnson" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Emily Davis</td>
+            <td><input type="radio" name="emilyDavis" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="emilyDavis" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Robert Brown</td>
+            <td><input type="radio" name="robertBrown" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="robertBrown" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Linda Wilson</td>
+            <td><input type="radio" name="lindaWilson" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="lindaWilson" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>David Miller</td>
+            <td><input type="radio" name="davidMiller" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="davidMiller" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Sarah Lee</td>
+            <td><input type="radio" name="sarahLee" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="sarahLee" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Daniel Martinez</td>
+            <td><input type="radio" name="danielMartinez" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="danielMartinez" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+        <tr>
+            <td>Olivia Garcia</td>
+            <td><input type="radio" name="oliviaGarcia" onclick="markRow(this, 'present')"></td>
+            <td><input type="radio" name="oliviaGarcia" onclick="markRow(this, 'absent')"></td>
+        </tr>
+
+    </table>
+
+    <div align="center" style="margin-top: 20px;">
+        <input type="button" value="Submit Attendance" onclick="showPostedMessage()">
+    </div>
+</div>
+
+<div id="thankYou">
+    <h2>Attendance Posted Successfully!</h2>
+    <p>Thank you. Your attendance has been recorded.</p>
+</div>
+
+<script>
+    function markRow(ele, status) {
+        let row = ele.closest("tr");
+        row.classList.remove("present", "absent");
+
+        if (status === 'present') {
+            row.classList.add("present");
+        } else if (status === 'absent') {
+            row.classList.add("absent");
+        }
+    }
+
+    function showPostedMessage() {
+        document.getElementById("formSection").style.display = "none";
+        document.getElementById("thankYou").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
